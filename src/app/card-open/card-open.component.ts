@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { UserServiceService } from '../services/user-service.service';
 
 @Component({
   selector: 'app-card-open',
@@ -8,8 +9,17 @@ import { Component, OnInit } from '@angular/core';
 export class CardOpenComponent implements OnInit {
 
   constructor() { }
-
+  @Input() cardOpen: any;
+  user: any;
+  openModals = false;
+  openModalx = true;
   ngOnInit() {
+    console.log(this.cardOpen);
+  }
+  openModal(bool){
+    this.openModals = bool;
+    this.openModalx = false;
+    console.log(this.openModals);
   }
 
 }

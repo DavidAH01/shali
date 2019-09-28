@@ -1,1 +1,49 @@
-<p>card-open works!</p>
+<section class="cardOpen" *ngIf="openModalx">
+    <div class="cardOpen-image">
+        <img [src]="cardOpen.image" onerror="this.onerror=null; this.src='assets/img/default.png'" alt="">
+    </div>
+    <div class="cardOpen-description">
+        <div class="cardOpen-container-detail">
+            <h3 class="cardOpen-container-detail-title">{{cardOpen.title || 'Caja de Leche Entera Alquería 1 litro' }}
+            </h3>
+            <p class="cardOpen-container-detail-date">Fecha máxima de consumo
+                {{cardOpen.expirationDate || '27/09/2019'}}</p>
+            <p class="cardOpen-container-detail-description">
+                {{cardOpen.description || 'Caja de Leche entera alquería. Comprada hace dos semanas. ' }}</p>
+        </div>
+        <div class="customer">
+            <p>¿Quién te va a entregar?</p>
+            <div class="customer-user">
+                <img src="assets/img/images.png" alt="">
+                <div class="customer-user-detail">
+                    <h4>Natalia Gomez</h4>
+                    <p>Bogotá Colombia</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cardOpen-map">
+        <agm-map [latitude]="cardOpen.lat" [longitude]="cardOpen.lng" [zoom]="14" [disableDefaultUI]="false"
+            [zoomControl]="false">
+            <agm-marker [latitude]="cardOpen.lat" [longitude]="cardOpen.lng"></agm-marker>
+        </agm-map>
+        <div class="cardOpen-container-more">
+            <button class="cardOpen-container-more-button" (click)="openModal(true)">Pedir</button>
+        </div>
+    </div>
+</section>
+<section class="modal" *ngIf="openModals">
+    <div class="card">
+        <div class="img">
+            <img src="assets/img/undraw_order_confirmed_1m3v.png" alt="">
+        </div>
+        <div class="text">
+            <h2>Esta publicación se bloqueará durante 24 horas.</h2>
+            <p>Contacta a Natalia al 3115974567</p>
+            <p>Gracias por hacer parte de esta revolución!</p>
+            <div class="cardOpen-container-more">
+                <button class="cardOpen-container-more-button" (click)="openModal(false)">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</section>
