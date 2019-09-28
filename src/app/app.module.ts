@@ -17,6 +17,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { PostComponent } from './post/post.component';
 import { PostCardComponent } from './post-card/post-card.component';
+import { CardOpenComponent } from './card-open/card-open.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { PostCardComponent } from './post-card/post-card.component';
     HomePageComponent,
     PostComponent,
     PostCardComponent,
+    CardOpenComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

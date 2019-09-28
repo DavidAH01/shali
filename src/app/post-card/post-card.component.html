@@ -1,12 +1,12 @@
 <article class="post">
     <div class="post-image">
-        <img src="" onerror="this.onerror=null; this.src='assets/img/default.png'" alt="Description">
+        <img [src]="post.image" onerror="this.onerror=null; this.src='assets/img/default.png'" alt="Description">
     </div>
     <div class="post-container">
         <div class="post-container-detail">
-            <p class="post-container-detail-date">21/02/2019</p>
-            <h3 class="post-container-detail-title">Post Title</h3>
-            <p class="post-container-detail-description">Post Title</p>
+            <h3 class="post-container-detail-title">{{post.title || 'Caja de Leche Entera Alquería 1 litro' }}</h3>
+            <p class="post-container-detail-date">Fecha máxima de consumo {{post.expirationDate || '27/09/2019'}}</p>
+            <p class="post-container-detail-description">{{post.description || 'Caja de Leche entera alquería. Comprada hace dos semanas. ' }}</p>
         </div>
         <div class="post-container-more">
             <button class="post-container-more-button">Pedir</button>

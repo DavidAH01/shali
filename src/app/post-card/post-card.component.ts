@@ -11,6 +11,9 @@ export class PostCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if (this.post.image) {
+      this.post.image = JSON.parse(this.post.image)[0];
+    }
   }
 
 }

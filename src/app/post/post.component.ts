@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostServiceService } from '../services/post-service.service';
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
@@ -6,22 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostComponent implements OnInit {
 
-  constructor() { }
-  fakes = [
-    {
-      name: 'test 1'
-    },
-    {
-      name: 'test 2'
-    },
-    {
-      name: 'test 3'
-    },
-    {
-      name: 'test 4'
-    }
-  ]
+  constructor(public postService: PostServiceService) { }
+  posts = [];
   ngOnInit() {
+    this.postService.getPosts().subscribe(data => {
+      this.posts = data;
+    });
   }
 
 }
