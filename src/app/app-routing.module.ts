@@ -10,10 +10,6 @@ const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'posts', component: PostComponent },
   {
-    path: 'login',
-    loadChildren: () => import('./user/user.module').then(m => m.UserModule)
-  },
-  {
     path: 'newpost',
     component:NewPostComponent
   }
