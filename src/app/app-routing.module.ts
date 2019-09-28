@@ -3,14 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { SharedModule } from './shared/shared.module';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AuthGuard } from './user/auth.guard';
+import { PostComponent } from './post/post.component';
 import {NewPostComponent} from './new-post/new-post.component'
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
-  {
-    path: 'login',
-    loadChildren: () => import('./user/user.module').then(m => m.UserModule)
-  },
+  { path: 'posts', component: PostComponent },
   {
     path: 'newpost',
     component:NewPostComponent
@@ -21,4 +19,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes), SharedModule],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

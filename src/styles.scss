@@ -1,7 +1,11 @@
 :root{
-    --primary: #ff0000;
-    --fontDark: #00000;
-    --border-radius: 6px;
+    --primary: #2EA110;
+    --secondary: #FF8C00;
+    --alert: #ff0000;
+    --gray: #2B2B2B;
+    --white: #fff;
+    --fontDark: #707070;
+    --border-radius: 15px;
 }
 
 html, body { height: 100%; }
@@ -12,6 +16,7 @@ a {
 }
 
 *{
+    font-family: 'Open Sans', sans-serif;
     box-sizing: border-box;
 }
 
@@ -20,10 +25,17 @@ a {
     padding: 8px 30px;
     color: var(--fontDark);
     border-radius: var(--border-radius);
+    font-size: 1rem;
+}
+
+.light-button{
+    background-color: var(--white);
+    color: var(--primary);
 }
 
 .primary-button{
     background-color: var(--primary);
+    color: var(--white);
 }
 
 .container{
@@ -33,6 +45,129 @@ a {
     max-width: 1170px;
 }
 
+.modal-overlay{
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0,0.7);
+    width: 100%;
+    height: 100%;
+
+    .modal-body{
+        padding: 40px;
+        width: 100%;
+        max-width: 400px;
+        overflow-y: auto; 
+        border-radius: var(--border-radius);
+        background-color: var(--white);
+        max-height: 90vh;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        .modal-close{
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 20px;
+            opacity: 0.6;
+            cursor: pointer;
+        }
+    }
+}
+
+.content-input{
+    display: block;
+    width: 100%;
+    padding: 5px 0 5px;
+    &.light{
+        label{
+            color: var(--white);
+        }
+        input{
+            border-radius: var(--border-radius);
+            background-color: var(--white);
+        }
+    }
+    label{
+        display: block;
+        width: 100%;
+        font-size: 0.7rem;
+        margin-bottom: 3px;
+    }
+    input{
+        width: 100%;
+        height: 30px;
+        border: 0;
+        box-shadow: none;
+        outline: none;
+        padding: 0 10px;
+        border-radius: var(--border-radius);
+    }
+    &:not(.light){
+        input{
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+    }
+    p{
+        color: var(--alert);
+        font-size: 0.7rem;
+        margin: 0;
+    }
+}
+
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-top: 5px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    padding-top: 3px;
+    font-size: 0.6rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: var(--white);
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 17px;
+        width: 17px;
+        background-color: rgba(255,255,255,0.6);
+        border: 1px solid var(--white);
+    }
+
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+    input:checked ~ .checkmark:after {
+        display: block;
+    }
+    .checkmark:after {
+        left: 5px;
+        top: 2px;
+        width: 2px;
+        height: 5px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+}
 
 .dropzone { 
     display: flex;

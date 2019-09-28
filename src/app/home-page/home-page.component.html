@@ -1,1 +1,98 @@
 <app-header></app-header>
+<aside class="content-image">
+    <div class="container">
+        <h1>¿Cómo hacer parte de la revolución de compartir comida?</h1>
+        <p>
+            1. Regístrate <br/>
+            2. Publica tu comida o pide la que necesitas <br/>
+            3. Entrega o recoge y disfruta del cambio
+        </p>
+    </div>
+</aside>
+<section class="content-main">
+    <div class="container">
+        <form action="">
+            <div class="container">
+                <h2>Comienza a revolucionar la forma en la que compartes</h2>
+                <div class="content-input light">
+                    <label>Nombre completo</label>
+                    <input type="text" placeholder="Nombre y apellido">
+                </div>
+                <div class="content-input light">
+                    <label>Celular</label>
+                    <input type="text" placeholder="311 8765498">
+                </div>
+                <div class="content-input light">
+                    <label>Correo</label>
+                    <input type="email" placeholder="correo@ejemplo.com">
+                </div>
+                <div class="content-input light">
+                    <label>Dirección</label>
+                    <input type="text" placeholder="Calle 132 # 16-85">
+                </div>
+                <label class="checkbox-container">Acepto términos y condiciones y la Política de tratamiento de datos
+                    <input type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="checkbox-container">Acepto que soy mayor de edad
+                    <input type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                </label>
+
+                <button class="button light-button">Regístrate</button>
+            </div>
+        </form>
+        <div class="content-copies">
+            <h2>Los beneficios de compartir con Shali</h2>
+            <div class="col-4">
+                <img src="./assets/beneficio.png" alt="beneficions Shali">
+                <div class="content-text">
+                    <p class="title">0 desperdicios</p>
+                    <p>Con Shali no botas. Comparte esos alimentos que no alcanzarás a consumir.</p>
+                </div>
+            </div>
+            <div class="col-4">
+                <img src="./assets/beneficio2.png" alt="beneficions Shali">
+                <div class="content-text">
+                    <p class="title">+ productos</p>
+                    <p>Encuentra esa comida que necesites sin costo adicional.</p>
+                </div>
+            </div>
+            <div class="col-4">
+                <img src="./assets/beneficio3.png" alt="beneficions Shali">
+                <div class="content-text">
+                    <p class="title">+ Amigos</p>
+                    <p>Conoce personas y haz parte de la comunidad que busca un cambio.</p>
+                </div>
+            </div>
+            <div class="col-4">
+                <img src="./assets/beneficio4.png" alt="beneficions Shali">
+                <div class="content-text">
+                    <p class="title">100% impacto positivo</p>
+                    <p>Reduce los altos índices de desperdicio de alimentos en Bogotá.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <img src="./assets/seccionFinal.png" alt="Shali"/>
+        </div>
+        <div class="col-6">
+            <p>Shali nace de la necesidad de disminuir el desperdicio de comida en Bogotá. Aquí podrás encontrar cientos de productos que otros quieren entregar para no perderlos, solicitar contacto e ir a recogerlos. Si tú también quieres compartir, podrás crear publicaciones para que otros disfruten aquello que tú no alcanzarás a consumir.</p>
+            <h2>SHALI, TRANSFORMA LA FORMA EN LA QUE COMPARTES</h2>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>Glitch 2019 &copy; Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<div class="modal-overlay" *ngIf="isShowLogin">
+    <div class="modal-body">
+        <img src="./assets/close.png" alt="Cerrar" class="modal-close" (click)="closeLoginModal()"/>
+        <app-email-login></app-email-login>
+    </div>
+</div>
