@@ -14,12 +14,14 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { PostComponent } from './post/post.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
+    PostComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
