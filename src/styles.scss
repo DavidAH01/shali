@@ -26,6 +26,10 @@ a {
     color: var(--fontDark);
     border-radius: var(--border-radius);
     font-size: 1rem;
+    cursor: pointer;
+    &:disabled{
+        opacity: 0.6;
+    }
 }
 
 .light-button{
@@ -88,6 +92,10 @@ a {
         input{
             border-radius: var(--border-radius);
             background-color: var(--white);
+        }
+        p{
+            color: var(--white);
+            float: right;
         }
     }
     label{

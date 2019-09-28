@@ -11,24 +11,36 @@
 </aside>
 <section class="content-main">
     <div class="container">
-        <form action="">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="container">
                 <h2>Comienza a revolucionar la forma en la que compartes</h2>
                 <div class="content-input light">
-                    <label>Nombre Producto</label>
-                    <input type="text" placeholder="Nombre y apellido">
+                    <label>Nombre completo</label>
+                    <input type="text" formControlName="name" placeholder="Nombre y apellido">
+                    <p *ngIf="name.invalid && name.dirty">
+                        Debes ingresar tu nombre
+                    </p>
                 </div>
                 <div class="content-input light">
                     <label>Celular</label>
-                    <input type="text" placeholder="311 8765498">
+                    <input type="tel" formControlName="phone" placeholder="3118765498">
+                    <p *ngIf="phone.invalid && phone.dirty">
+                        Debes ingresar tu número celular
+                    </p>
                 </div>
                 <div class="content-input light">
                     <label>Correo</label>
-                    <input type="email" placeholder="correo@ejemplo.com">
+                    <input type="email" formControlName="email" placeholder="correo@ejemplo.com">
+                    <p *ngIf="email.invalid && email.dirty">
+                        Debes ingresar un correo válido
+                    </p>
                 </div>
                 <div class="content-input light">
-                    <label>Dirección</label>
-                    <input type="text" placeholder="Calle 132 # 16-85">
+                    <label>Contraseña</label>
+                    <input type="password" formControlName="password" placeholder="******">
+                    <p *ngIf="password.invalid && password.dirty">
+                        Debes una contraseña de mínimo 6 dígitos
+                    </p>
                 </div>
                 <label class="checkbox-container">Acepto términos y condiciones y la Política de tratamiento de datos
                     <input type="checkbox" checked="checked">
@@ -38,8 +50,9 @@
                     <input type="checkbox" checked="checked">
                     <span class="checkmark"></span>
                 </label>
-
-                <button class="button light-button">Regístrate</button>
+                {{ serverMessage }}
+                <button type="submit"
+                [disabled]="loading || form.invalid" class="button light-button">Regístrate</button>
             </div>
         </form>
         <div class="content-copies">
