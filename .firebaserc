@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "angular-voxer"
+    "default": "shali-3b91a",
+    "shali": "shali-3b91a"
   }
 }
