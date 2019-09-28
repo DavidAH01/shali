@@ -11,16 +11,18 @@
         </div>
         <div class="detalle">
             <div class="content-input">
-                <label>Nombre Completo: </label>
-                <input type="text" [(ngModel)]="formdata.title" name="title" placeholder="Nombre Completo">
+                <label>Nombre Producto: </label>
+                <input type="text" [(ngModel)]="formdata.title" name="title" placeholder="Nombre Producto">
             </div>
             <div class="content-input">
                 <label>Descripción: </label>
                 <input type="text" [(ngModel)]="formdata.description" name="description" placeholder="Descripción">
             </div>
-            <div class="content-input">
-                <label>Tipo: </label>
-                <input type="text" [(ngModel)]="formdata.type" name="type" placeholder="Tipo de solicitud">
+            <label>Tipo: </label>
+            <div class="content-input contCheckbox">
+                    <button [ngClass]="{'whiteBtn ': formdata.type=='Donar'}" (click)="formdata.type='Donar'" >Donar</button>
+                    <button [ngClass]="{'whiteBtn': formdata.type=='Recibir'}" (click)="formdata.type='Recibir'">Recibir</button>
+                
             </div>
             <div class="content-input">
                     <label>Fecha de vencimiento: </label>
@@ -42,7 +44,8 @@
             </agm-map>
             
             <br>
-            <p>
+            <p class="btncontainer">
+                <button class="whiteBtn "type="submit" value="" [routerLink]="[ '/' ]" >Cancelar </button>
                 <button type="submit" value="Enviar" (click)="savePost()">Enviar </button>
             </p>
         </div>

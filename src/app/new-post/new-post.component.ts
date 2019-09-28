@@ -29,7 +29,7 @@ export class NewPostComponent implements OnInit {
     "lng":"",
     "status":"",
     "title":"",
-    "type":"",
+    "type":"Donar", 
   };
   constructor(private postService:PostServiceService,    private geocodeService: GeocodeService,
     ) { }

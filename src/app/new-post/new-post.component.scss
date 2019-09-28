@@ -18,6 +18,7 @@ label{
         max-width: 200px;
         margin-right: 15px;
     }
+    
 }
 button{
     width: 140px;
@@ -33,6 +34,21 @@ button{
     color: #FFFFFF;
     opacity: 1;
 }
+.whiteBtn{
+    cursor: pointer;
+    border: 1px solid #2EA110;
+    border-radius: 18px;
+    opacity: 1;
+    background: white;
+    color:#2EA110;
+}
+
+.btncontainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 input[type="text"],input[type="date"]{
     margin-top: 5px;
     margin-bottom: 20px;
@@ -54,6 +70,11 @@ input[type="text"],input[type="date"]{
 .contenedorForm{
     display: flex;
     flex-direction: row;
+    @media only screen and (max-width: 920px) {
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
     .imagenes{
         flex:1;
     }
@@ -62,5 +83,21 @@ input[type="text"],input[type="date"]{
     }
     .mapa{
         flex:1;
+    }
+}
+
+
+.contCheckbox{
+    display: flex;
+    justify-content: space-between;
+    max-width: 245px;
+    label{
+        display: inline;
+    }
+    div{
+        width: 100%;
+    }
+    button{
+        width: 100px;
     }
 }
