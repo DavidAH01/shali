@@ -1,12 +1,12 @@
 export const environment = {
   production: true,
   firebase:  {
-    apiKey: 'AIzaSyAKlEX5a8PQaadYNSrohqfl33O37Kjkv1Y',
-    authDomain: 'angular-voxer.firebaseapp.com',
-    databaseURL: 'https://angular-voxer.firebaseio.com',
-    projectId: 'angular-voxer',
-    storageBucket: 'angular-voxer.appspot.com',
-    messagingSenderId: '122050526979',
-    appId: '1:122050526979:web:529304dce5ffca7a'
+    apiKey: "AIzaSyCDBRz2-s3YgDhEchWQwecMdrni1_7kPXw",
+    authDomain: "shali-3b91a.firebaseapp.com",
+    databaseURL: "https://shali-3b91a.firebaseio.com",
+    projectId: "shali-3b91a",
+    storageBucket: "",
+    messagingSenderId: "131636037373",
+    appId: "1:131636037373:web:55d94b64e99d8823d6a094"
   }
 };
