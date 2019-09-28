@@ -15,6 +15,12 @@ a {
     text-decoration: none;
 }
 
+.right{
+    float: right;
+    color: var(--fontDark);
+    margin-right: 15px;
+}
+
 *{
     font-family: 'Open Sans', sans-serif;
     box-sizing: border-box;
