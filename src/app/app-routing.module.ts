@@ -4,6 +4,7 @@ import { SharedModule } from './shared/shared.module';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AuthGuard } from './user/auth.guard';
 import { PostComponent } from './post/post.component';
+import {NewPostComponent} from './new-post/new-post.component'
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./user/user.module').then(m => m.UserModule)
+  },
+  {
+    path: 'newpost',
+    component:NewPostComponent
   }
 ];
 
