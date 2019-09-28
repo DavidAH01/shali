@@ -18,7 +18,7 @@ export class NewPostComponent implements OnInit {
   lat: number = 4.624335;
   lng: number = -74.063644;
   formdata = {
-    "UUID":Math.random()+"",
+    "UUID":JSON.parse(localStorage.getItem("auth")).UUID+"",
     "address":"",
     "attachedUser":"",
     "description":"",
