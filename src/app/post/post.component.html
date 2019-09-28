@@ -1,1 +1,22 @@
-<p>post works!</p>
+<app-header></app-header>
+<main class="posts">
+    <h1 class="posts-title">PLAZOLETA DE PRODUCTOS</h1>
+    <section class="container">
+        <div class="posts-search">
+            <div class="posts-search-input">
+                <input type="text" placeholder="Buscar producto" name="" id="">
+            </div>
+            <div class="posts-search-buttons">
+                <button>Donar</button>
+                <button disabled>Recibir</button>
+            </div>
+        </div>
+    </section>
+    <section class="container">
+        <div class="posts-items">
+            <div class="posts-items-item" *ngFor="let fake of fakes">
+                <app-post-card [post]="fake"></app-post-card>
+            </div>
+        </div>
+    </section>
+</main>
