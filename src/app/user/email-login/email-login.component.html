@@ -1,94 +1,38 @@
-<div>
-  <div *ngIf="isSignup">
-    <h3>Create Account</h3>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <h2>Inicar Sesión</h2>
+  <div class="content-input">
+    <label>Correo</label>
+    <input
+      formControlName="email"
+      type="email"
+      placeholder="Email"
+      autocomplete="off"
+    />
 
-    <button mat-stroked-button (click)="changeType('login')">
-      Returning user?
-    </button>
+    <p *ngIf="email.invalid && email.dirty">
+      Debes ingresar un correo válido
+    </p>
   </div>
 
-  <div *ngIf="isLogin">
-    <h3>Sign In</h3>
-    <button size="small" mat-stroked-button (click)="changeType('signup')">
-      New user?
-    </button>
+  <div class="content-input">
+    <label>Contraseña</label>
+    <input
+      formControlName="password"
+      type="password"
+      placeholder="Password"
+      autocomplete="off"
+    />
+
+    <p *ngIf="password.invalid && password.dirty">
+      La contraseña debe tener mínimo 6 caracteres
+    </p>
   </div>
-
-  <div *ngIf="isPasswordReset">
-    <h3>Reset Password</h3>
-    <button size="small" mat-button (click)="changeType('login')">Back</button>
-  </div>
-
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div>
-      <input
-        matInput
-        formControlName="email"
-        type="email"
-        placeholder="Email"
-        autocomplete="off"
-      />
-
-      <p *ngIf="email.invalid && email.dirty">
-        You must enter a valid email address
-      </p>
-    </div>
-
-    <div *ngIf="!isPasswordReset">
-      <input
-        matInput
-        formControlName="password"
-        type="password"
-        placeholder="Password"
-        autocomplete="off"
-      />
-
-      <p *ngIf="password.invalid && password.dirty">
-        Password must be at least 6 characters long
-      </p>
-    </div>
-
-    <div *ngIf="isSignup">
-      <input
-        matInput
-        formControlName="passwordConfirm"
-        type="password"
-        placeholder="Confirm password"
-        autocomplete="off"
-      />
-
-      <p *ngIf="passwordConfirm.dirty && !passwordDoesMatch">
-        Password does not match
-      </p>
-    </div>
-
-    <p class="server-error">{{ serverMessage }}</p>
-
-    <button
-      *ngIf="isPasswordReset"
-      mat-stroked-button
-      type="submit"
-      [disabled]="loading"
-    >
-      Send Reset Email
-    </button>
-
-    <button
-      *ngIf="!isPasswordReset"
-      mat-raised-button
-      color="accent"
-      type="submit"
-      [disabled]="form.invalid || !passwordDoesMatch || loading"
-    >
-      Submit
-    </button>
-  </form>
 
   <button
-    mat-button
-    *ngIf="isLogin && !isPasswordReset"
-    (click)="changeType('reset')"
+    type="submit"
+    [disabled]="loading"
+    class="button primary-button"
   >
-    Forgot password?
+    Ingresar
   </button>
-</div>
+</form>

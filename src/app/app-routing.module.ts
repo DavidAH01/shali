@@ -8,10 +8,6 @@ import {NewPostComponent} from './new-post/new-post.component'
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   {
-    path: 'login',
-    loadChildren: () => import('./user/user.module').then(m => m.UserModule)
-  },
-  {
     path: 'newpost',
     component:NewPostComponent
   }
