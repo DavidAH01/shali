@@ -18,7 +18,7 @@ export class NewPostComponent implements OnInit {
   lat: number = 4.624335;
   lng: number = -74.063644;
   formdata = {
-    "UUID":Math.random()+"",
+    "UUID":(localStorage.getItem("auth")?JSON.parse(localStorage.getItem("auth")).UUID+"":Math.random()+""),
     "address":"",
     "attachedUser":"",
     "description":"",
@@ -29,7 +29,7 @@ export class NewPostComponent implements OnInit {
     "lng":"",
     "status":"",
     "title":"",
-    "type":"",
+    "type":"Donar", 
   };
   constructor(private postService:PostServiceService,    private geocodeService: GeocodeService,
     ) { }
