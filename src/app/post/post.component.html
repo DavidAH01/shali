@@ -1,21 +1,22 @@
 <app-header></app-header>
 <main class="posts">
-    <h1 class="posts-title">PLAZOLETA DE PRODUCTOS</h1>
+    <h1 class="posts-title">Mercado local</h1>
     <section class="container">
         <div class="posts-search">
             <div class="posts-search-input">
                 <input type="text" placeholder="Buscar producto" name="" id="">
             </div>
             <div class="posts-search-buttons">
-                <button>Donar</button>
+                <button>Compartir</button>
                 <button disabled>Recibir</button>
             </div>
         </div>
     </section>
     <section class="container">
+        <app-card-open [cardOpen]="cardOpen" *ngIf="showDetailCard"></app-card-open>
         <div class="posts-items">
             <div class="posts-items-item" *ngFor="let post of posts">
-                <app-post-card [post]="post"></app-post-card>
+                <app-post-card [post]="post" (returnPost)="selectedCard($event)"></app-post-card>
             </div>
         </div>
     </section>
