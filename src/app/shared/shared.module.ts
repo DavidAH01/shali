@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common'; 
 import { DirectivesModule } from '../directives.module';
 import { HeaderComponent } from './header/header.component'; 
 
@@ -7,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
     HeaderComponent
   ],
   imports: [
+    CommonModule,
     DirectivesModule
   ],
   exports: [

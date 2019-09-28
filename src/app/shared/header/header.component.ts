@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { LoginService } from '../../services/login.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { LoginService } from '../../services/login.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  @Input() isAuth = false;
   constructor(private login: LoginService) { }
 
   ngOnInit() {

@@ -4,6 +4,14 @@
             <img src="./assets/logo.svg">
         </a>
 
-        <a href="" class="button light-button" (click)="toggleModalLogin($event)">Iniciar Sesión</a>
+        <a href="/" *ngIf="isAuth" class="right">
+            Cerrar Sesión
+        </a>
+
+        <a href="/newpost" *ngIf="isAuth" class="right">
+            Crear publicación
+        </a>
+
+        <a  *ngIf="!isAuth" class="button light-button" (click)="toggleModalLogin($event)">Iniciar Sesión</a>
     </div>
 </header>
