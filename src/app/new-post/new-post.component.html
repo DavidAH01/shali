@@ -1,59 +1,52 @@
 <app-header></app-header>
 
 <div class="container">
-    
-    <h1>New post</h1>
 
-    <!--
-    title
-    description
-    image
-    address
-    lat
-    lng
-    type
-    expirationDate
-    idUser
-    -->
-    {{formdata | json}}
-    <form action="">
-            <div class="content-input">
-                    <label>Titulo:  </label>
-                    <input type="text"[(ngModel)]="formdata.title" name="title"  placeholder="titulo">
-                </div>
-            <div class="content-input">
-                    <label>Descripción: </label>
-                    <input type="text" [(ngModel)]="formdata.description" name="description" placeholder="Descripción">
-                </div>
-            <div class="content-input">
-                    <label>Tipo: </label>
-                    <input type="text" [(ngModel)]="formdata.type" name="type" placeholder="Tipo de solicitud">
-                </div>
-                <uploader></uploader>
-            <div class="content-input">
-                <label>Dirección: </label>
-                <button (click)="addressToCoordinates()">buscar</button>
+    <h1>Publica lo que necesitas</h1>
 
-                <input type="text" [(ngModel)]="address" name="address" placeholder="Direccion" >
-                <agm-map 
-  [latitude]="lat"
-  [longitude]="lng"
-  [zoom]="zoom"
-  [disableDefaultUI]="false"
-  [zoomControl]="false">
+    <div class="contenedorForm">
+        <div class="imagenes">
+            <uploader></uploader>
 
-  <agm-marker 
-      [latitude]="lat"
-      [longitude]="lng"></agm-marker>
-    
-    </agm-map>
+        </div>
+        <div class="detalle">
+            <div class="content-input">
+                <label>Nombre Completo: </label>
+                <input type="text" [(ngModel)]="formdata.title" name="title" placeholder="Nombre Completo">
             </div>
             <div class="content-input">
-                <label>Expiration Date: </label>
-                <input type="date" [(ngModel)]="formdata.expirationDate" name="expirationDate" placeholder="expirationDate">
+                <label>Descripción: </label>
+                <input type="text" [(ngModel)]="formdata.description" name="description" placeholder="Descripción">
             </div>
+            <div class="content-input">
+                <label>Tipo: </label>
+                <input type="text" [(ngModel)]="formdata.type" name="type" placeholder="Tipo de solicitud">
+            </div>
+            <div class="content-input">
+                    <label>Fecha de vencimiento: </label>
+                    <input type="date" [(ngModel)]="formdata.expirationDate" name="expirationDate"
+                        placeholder="Fecha de vencimiento">
+                </div>
+        </div>
+        <div class="mapa">
+            <label>Dirección: </label>
 
-            <button type="submit" value="Enviar" (click)="savePost()">Enviar </button>
-    </form>
+            <div class="continputbutton">
+                <input type="text" class="inputmapa" [(ngModel)]="address" name="address" placeholder="Direccion">
+                <button (click)="addressToCoordinates()">Buscar</button>
+            </div>
+            <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false">
+
+                <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+
+            </agm-map>
+            
+            <br>
+            <p>
+                <button type="submit" value="Enviar" (click)="savePost()">Enviar </button>
+            </p>
+        </div>
+    </div>
+
 
 </div>
