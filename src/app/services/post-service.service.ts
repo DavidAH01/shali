@@ -14,6 +14,7 @@ export class PostServiceService {
     console.log("add item",data)
     this.db.collection("posts").add(data).then(function(docRef) {
       console.log("Document written with ID: ", docRef.id);
+      localStorage.removeItem('images');
   })
   .catch(function(error) {
       console.error("Error adding document: ", error);
