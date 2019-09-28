@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomePageComponent } from './home-page/home-page.component';
 import { UserModule } from './user/user.module';
+import { SharedModule } from './shared/shared.module';
 
 // Firebase imports
 import { AngularFireModule } from '@angular/fire';
@@ -28,6 +29,7 @@ import { PostComponent } from './post/post.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     UserModule,
+    SharedModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
