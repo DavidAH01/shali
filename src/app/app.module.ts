@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomePageComponent } from './home-page/home-page.component';
-import { SharedModule } from './shared/shared.module';
 import { UserModule } from './user/user.module';
 
 // Firebase imports
@@ -26,7 +25,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule,
     UserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
