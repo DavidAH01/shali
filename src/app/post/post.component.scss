@@ -1,0 +1,57 @@
+.posts {
+    margin-top: 4.4em;
+    font-size: 16px;
+    &-title {
+        text-align: center;
+        font-size: 32px;
+        padding: 1.5em;
+        color: #FF8C06;
+    }
+    &-items {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+        padding-top: 2em;
+        &-item {
+            display: flex;
+            margin-bottom: 1em;
+        }
+    }
+    &-search {
+        display: flex;
+        flex-direction: row;
+        &-input {
+            width: 70%;
+            input[type="text"]{
+                padding: 1em;
+                outline: none;
+                border-radius: 1em;
+                border: 0;
+                border: 1px solid #2EA110;
+                height: 33px;            
+            }
+        }
+        &-buttons {
+            width: 30%;
+            display: flex;
+            justify-content: space-around;
+            button {
+                border: 0;
+                cursor: pointer;
+                border-radius: 5em;
+                font-weight: bold;
+                padding: 1em 2em;
+                outline: none;
+                height: 33px;
+                line-height: 0.1;  
+                background: #2EA110;  
+                color: white;
+                width: 115px;
+                &:disabled {
+                    background: #A2A2A2;  
+                }        
+            }
+        }
+    }
+}

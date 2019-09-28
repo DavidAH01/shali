@@ -5,6 +5,9 @@ import {
   Validators,
 } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { UserServiceService } from 'src/app/services/user-service.service';
+import { PostServiceService } from 'src/app/services/post-service.service';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-email-login',
@@ -19,7 +22,9 @@ export class EmailLoginComponent implements OnInit {
 
   serverMessage: string;
 
-  constructor(private afAuth: AngularFireAuth, private fb: FormBuilder) {}
+  constructor(private angularFs : AngularFirestore,private afAuth: AngularFireAuth, private fb: FormBuilder,private postService:PostServiceService,private UserServiceService:UserServiceService) {
+    
+  }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -30,6 +35,37 @@ export class EmailLoginComponent implements OnInit {
       ],
       passwordConfirm: ['', []]
     });
+
+    this.UserServiceService.getUser("WiEpBqlyOvc1aEdJijedaIhLaJh2").subscribe(data=>{
+      console.log(data)
+    })
+
+    
+    this.UserServiceService.addUserInfo({
+      "UUID":"WiEpBqlayOvc1aEdJijedaIhLaJh2",
+      "name":"namea",
+      "email":"emails",
+      "phone":"phone",
+      "address":"address"
+    });
+    this.postService.addPost({
+      "UUID":"dgsgdgdsfg",
+      "address":"address123",
+      "attachedUser":"",
+      "description":"",
+      "expirationDate":"",
+      "idUser":"",
+      "image":"",
+      "lat":"",
+      "lng":"",
+      "status":"",
+      "title":"",
+      "type":"",
+    });
+
+    this.postService.getPosts().subscribe(data=>{
+      console.log(data)
+    })
   }
 
   changeType(val) {
