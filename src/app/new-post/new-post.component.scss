@@ -1,0 +1,66 @@
+h1{
+    color:#2EA110;
+    font-family: "Open Sans";
+    font-size: 32px;
+}
+label{
+    font-family: "Open Sans";
+    font-size: 8px;
+    color:#2EA110;
+    display: block;
+}
+.continputbutton{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    .inputmapa{
+        max-width: 200px;
+        margin-right: 15px;
+    }
+}
+button{
+    width: 140px;
+    height: 35px;
+    background: #2EA110 0% 0% no-repeat padding-box;
+    border: 1px solid #2EA110;
+    border-radius: 18px;
+    opacity: 1;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0;
+    color: #FFFFFF;
+    opacity: 1;
+}
+input[type="text"],input[type="date"]{
+    margin-top: 5px;
+    margin-bottom: 20px;
+    width: 247px;
+    height: 35px;
+    border:none;
+    border-radius: 10px;
+    font-family: "Open Sans";
+    background-color: #E9E9E9;
+
+    font-size: 11px;
+    text-align: left;
+    letter-spacing: 0;
+    color: #A2A2A2;
+    opacity: 1;
+    padding: 10px;
+
+}
+.contenedorForm{
+    display: flex;
+    flex-direction: row;
+    .imagenes{
+        flex:1;
+    }
+    .detalle{
+        flex:1;
+    }
+    .mapa{
+        flex:1;
+    }
+}

@@ -1,4 +1,6 @@
-<div class="dropzone" 
+<div 
+    *ngIf="files.length == 0"
+    class="dropzone" 
      dropzone
      (hovered)="toggleHover($event)"
      (dropped)="onDrop($event)"
@@ -6,8 +8,6 @@
      <h3>Sube tus imagenes</h3>
      <p>Arrastra y suelta</p>
 </div>
-
-<h3>Tus imagenes</h3>
 
 <div *ngFor="let file of files">
   <upload-task [file]="file"></upload-task>

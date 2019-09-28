@@ -174,16 +174,16 @@ a {
     align-items: center;
     justify-content: center;
     flex-direction: column; 
-    min-width: 80vw;
+    width: 270px;
     font-weight: 200;
     height: 100px;
-    border: 2px dashed #f16624;
+    border: 2px dashed #2EA110;
     border-radius: 5px;
     background: white;
     margin: 10px 0;
   
     &.hovering {
-        border: 2px solid #f16624;
+        border: 2px solid #2EA110;
         color: #dadada !important;
     }
   
@@ -198,5 +198,5 @@ a {
 
 
   agm-map {
-    height: 300px;
+    height: 200px;
   }
