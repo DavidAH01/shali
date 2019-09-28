@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router"
 import {
   FormBuilder,
   FormGroup,
@@ -6,7 +7,6 @@ import {
 } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { UserServiceService } from 'src/app/services/user-service.service';
-import { PostServiceService } from 'src/app/services/post-service.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
@@ -17,12 +17,10 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class EmailLoginComponent implements OnInit {
   form: FormGroup;
 
-  type: 'login' | 'signup' | 'reset' = 'signup';
+  serverMessage: any;
   loading = false;
 
-  serverMessage: string;
-
-  constructor(private angularFs : AngularFirestore,private afAuth: AngularFireAuth, private fb: FormBuilder,private postService:PostServiceService,private UserServiceService:UserServiceService) {
+  constructor(private angularFs : AngularFirestore, private router: Router, private afAuth: AngularFireAuth, private fb: FormBuilder,private UserServiceService:UserServiceService) {
     
   }
 
@@ -32,56 +30,8 @@ export class EmailLoginComponent implements OnInit {
       password: [
         '',
         [Validators.minLength(6), Validators.required]
-      ],
-      passwordConfirm: ['', []]
+      ]
     });
-
-    this.UserServiceService.getUser("WiEpBqlyOvc1aEdJijedaIhLaJh2").subscribe(data=>{
-      console.log(data)
-    })
-
-    
-    this.UserServiceService.addUserInfo({
-      "UUID":"WiEpBqlayOvc1aEdJijedaIhLaJh2",
-      "name":"namea",
-      "email":"emails",
-      "phone":"phone",
-      "address":"address"
-    });
-    this.postService.addPost({
-      "UUID":"dgsgdgdsfg",
-      "address":"address123",
-      "attachedUser":"",
-      "description":"",
-      "expirationDate":"",
-      "idUser":"",
-      "image":"",
-      "lat":"",
-      "lng":"",
-      "status":"",
-      "title":"",
-      "type":"",
-    });
-
-    this.postService.getPosts().subscribe(data=>{
-      console.log(data)
-    })
-  }
-
-  changeType(val) {
-    this.type = val;
-  }
-
-  get isLogin() {
-    return this.type === 'login';
-  }
-
-  get isSignup() {
-    return this.type === 'signup';
-  }
-
-  get isPasswordReset() {
-    return this.type === 'reset';
   }
 
   get email() {
@@ -91,18 +41,6 @@ export class EmailLoginComponent implements OnInit {
     return this.form.get('password');
   }
 
-  get passwordConfirm() {
-    return this.form.get('passwordConfirm');
-  }
-
-  get passwordDoesMatch() {
-    if (this.type !== 'signup') {
-      return true;
-    } else {
-      return this.password.value === this.passwordConfirm.value;
-    }
-  }
-
   async onSubmit() {
     this.loading = true;
 
@@ -110,16 +48,13 @@ export class EmailLoginComponent implements OnInit {
     const password = this.password.value;
 
     try {
-      if (this.isLogin) {
-        await this.afAuth.auth.signInWithEmailAndPassword(email, password);
-      }
-      if (this.isSignup) {
-        await this.afAuth.auth.createUserWithEmailAndPassword(email, password);
-      }
-      if (this.isPasswordReset) {
-        await this.afAuth.auth.sendPasswordResetEmail(email);
-        this.serverMessage = 'Check your email';
-      }
+      const resp = await this.afAuth.auth.signInWithEmailAndPassword(email, password);
+      console.log(resp.user.uid)
+      this.UserServiceService.getUser(resp.user.uid).subscribe(data => {
+        console.log(data[0])
+        localStorage.setItem('auth', JSON.stringify(data[0]));
+        this.router.navigate(['/posts'])
+      })
     } catch (err) {
       this.serverMessage = err;
     }
