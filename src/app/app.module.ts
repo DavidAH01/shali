@@ -22,11 +22,11 @@ import { PostCardComponent } from './post-card/post-card.component';
 import { CardOpenComponent } from './card-open/card-open.component';
 import { NewPostComponent } from './new-post/new-post.component';
 import { FormsModule } from '@angular/forms';
-import { DirectivesModule } from './directives.module';
 import { UploaderComponent } from './uploader/uploader.component';
 import { UploadTaskComponent } from './upload-task/upload-task.component';
 import { AngularFireStorage, AngularFireStorageModule } from '@angular/fire/storage';
 import { GeocodeService } from './services/geocode.service';
+import { DropzoneDirective } from './dropzone.directive';
 
 @NgModule({
   declarations: [
@@ -36,6 +36,7 @@ import { GeocodeService } from './services/geocode.service';
     PostCardComponent,
     CardOpenComponent,
     NewPostComponent,
+    DropzoneDirective,
     UploaderComponent,
     UploadTaskComponent,
   ],
@@ -47,7 +48,6 @@ import { GeocodeService } from './services/geocode.service';
     FormsModule,
     SharedModule,
     ReactiveFormsModule,
-    DirectivesModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBg2sUzi4_IMRUxAfKloz1ihJQKjdSeadI'
     }),
