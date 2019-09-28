@@ -16,10 +16,12 @@ export class CardOpenComponent implements OnInit {
   ngOnInit() {
     console.log(this.cardOpen);
   }
-  openModal(bool){
+  openModal(bool) {
     this.openModals = bool;
-    this.openModalx = false;
-    console.log(this.openModals);
+    if (bool === false) {
+      console.log("test")
+      window.location.reload();
+    }
   }
 
 }
