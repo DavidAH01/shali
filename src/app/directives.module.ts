@@ -5,7 +5,7 @@ import { DropzoneDirective } from './dropzone.directive';
 @NgModule({
   declarations: [
     HeaderShadowDirective,
-    DropzoneDirective
+    // DropzoneDirective
   ],
   imports: [
   ],
